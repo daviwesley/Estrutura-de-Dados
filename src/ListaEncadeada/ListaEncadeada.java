@@ -57,6 +57,9 @@ public class ListaEncadeada {
 	}
 	
 	public void removerInicio(){
+		if(inicio == null){
+			throw new IllegalArgumentException("A lista está vazia");
+		}
 		No temp = inicio;
 		inicio = temp.getProx();
 		this.tam--;
