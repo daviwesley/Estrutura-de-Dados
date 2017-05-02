@@ -102,6 +102,28 @@ public class ListaEncadeada {
 		System.out.println(temp.getConteudo());		
 	}
 	
+	public int somarElementosIterativo(){
+		No temp = inicio;
+		int soma = temp.getConteudo();
+		while(temp.getProx() != null){
+			temp = temp.getProx();	
+			soma = soma + temp.getConteudo();
+		}
+		return soma;
+		
+	}
+	public int somarElementosRecursao(){
+		return somarElementosRecursao(inicio);
+	}
+	
+	public int somarElementosRecursao(No temp){
+		if(temp == null){
+			return 0;
+		}else{
+			return temp.getConteudo() + somarElementosRecursao(temp.getProx());
+		}
+	}
+		
 	public void imprimir(){
 		if(this.inicio == null){
 			System.out.println("[!]Lista Vazia");
@@ -113,8 +135,6 @@ public class ListaEncadeada {
 			temp = temp.getProx();
 			System.out.print(temp.getConteudo() + "\t");
 		}
-	}
-	
-		
+	}		
 
 }
