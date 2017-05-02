@@ -35,20 +35,23 @@ public class ListaEncadeada {
 	}
 	
 	public void adicionarPosicao(int posicao,int x){
-		if(posicao == this.tam){
-			adicionarFim(x);
-		}else if(posicao == 1){
+		if(posicao  == 0){
 			adicionarInicio(x);
+			//adicionarFim(x);
+		}else if(posicao - 1 == this.tam){
+			adicionarFim(x);
+			//adicionarInicio(x);
 		}else{
 		No n = new No();
 		n.setConteudo(x);
 		No temp = inicio;
-		for(int i = 0; i < posicao; i++){
+		for(int i = 1; i < posicao - 1; i++){
 			temp = temp.getProx();
 		}
 		n.setProx(temp.getProx());
 		temp.setProx(n);
 		this.tam++;
+		
 		}
 		
 	}
