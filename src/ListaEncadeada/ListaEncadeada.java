@@ -123,7 +123,26 @@ public class ListaEncadeada {
 			return temp.getConteudo() + somarElementosRecursao(temp.getProx());
 		}
 	}
-		
+	
+	public void selectionSort(){
+		for(No no1 = inicio; no1!=null; no1 = no1.getProx()){//number of
+			//iterations
+			No min = no1;//assumes min node is the node under considerations
+			//selects the min node
+			for(No no2 = no1; no2!=null; no2 = no2.getProx()){
+				if(min.getConteudo() > no2.getConteudo()){
+					min = no2;
+				}
+
+			}
+			//swaps the min node with the node in its actual position
+			No temp = new No();
+			temp.setConteudo(no1.getConteudo());
+			no1.setConteudo(min.getConteudo()); 
+			min.setConteudo(temp.getConteudo()); 
+		}
+	}
+	
 	public void imprimir(){
 		if(this.inicio == null){
 			System.out.println("[!]Lista Vazia");
