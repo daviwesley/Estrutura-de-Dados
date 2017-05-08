@@ -112,6 +112,19 @@ public class ListaEncadeada {
 		return soma;
 		
 	}
+	
+	public void ImprimirRecursivo(){
+		this.ImprimirRecursivo(inicio);
+	}
+	
+	public void ImprimirRecursivo(No temp){
+		if (temp == null){
+			return;
+		}else{
+			ImprimirRecursivo(temp.getProx());
+		}
+		System.out.print(temp.getConteudo() + "\t");
+	}
 	public int somarElementosRecursao(){
 		return somarElementosRecursao(inicio);
 	}
