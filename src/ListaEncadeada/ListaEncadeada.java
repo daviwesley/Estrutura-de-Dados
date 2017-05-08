@@ -160,12 +160,15 @@ public class ListaEncadeada {
 			System.out.println("[!]Lista Vazia");
 			return;
 		}
-		No temp = this.inicio;
-		System.out.print(temp.getConteudo() + "\t");
-		while(temp.getProx() != null){
-			temp = temp.getProx();
-			System.out.print(temp.getConteudo() + "\t");
+		//No temp = this.inicio;
+		//System.out.print(temp.getConteudo() + "\t");
+		for(No n = this.inicio; n !=null; n = n.getProx()){
+			System.out.println(n.getConteudo());
 		}
-	}		
+//		while(temp.getProx() != null){
+//			temp = temp.getProx();
+//			System.out.print(temp.getConteudo() + "\t");
+//		}
+	}			
 
 }
