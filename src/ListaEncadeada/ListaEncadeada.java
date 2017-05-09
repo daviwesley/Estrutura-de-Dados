@@ -1,4 +1,5 @@
 package ListaEncadeada;
+
 /*
  * Lista encadeada com ponteiro no inicio e no fim
  * 
@@ -58,7 +59,7 @@ public class ListaEncadeada {
 	
 	public void removerInicio(){
 		if(inicio == null){
-			throw new IllegalArgumentException("A lista est√° vazia");
+			throw new IllegalArgumentException("A lista est· vazia");
 		}
 		No temp = inicio;
 		inicio = temp.getProx();
@@ -94,6 +95,19 @@ public class ListaEncadeada {
 		}
 	}
 	
+	public void ImprimirRecursivo(){
+		this.ImprimirRecursivo(inicio);
+	}
+	
+	public void ImprimirRecursivo(No temp){
+		if (temp == null){
+			return;
+		}else{
+			System.out.print(temp.getConteudo() + "\t");
+			ImprimirRecursivo(temp.getProx());
+		}
+	}
+	
 	public void ImprimirPosicao(int posicao){
 		No temp = inicio;
 		for(int i = 0; i < posicao-1; i++){
@@ -112,19 +126,6 @@ public class ListaEncadeada {
 		return soma;
 		
 	}
-	
-	public void ImprimirRecursivo(){
-		this.ImprimirRecursivo(inicio);
-	}
-	
-	public void ImprimirRecursivo(No temp){
-		if (temp == null){
-			return;
-		}else{
-			ImprimirRecursivo(temp.getProx());
-		}
-		System.out.print(temp.getConteudo() + "\t");
-	}
 	public int somarElementosRecursao(){
 		return somarElementosRecursao(inicio);
 	}
@@ -139,22 +140,32 @@ public class ListaEncadeada {
 	
 	public void selectionSort(){
 		for(No no1 = inicio; no1!=null; no1 = no1.getProx()){//percorre a lista
-			No min = no1;//item da itera√ß√£o
-			//selects o menor n√≥
+			No min = no1;//item da iteraÁ„o
+			//seleciona o menor nÛ
 			for(No no2 = no1; no2!=null; no2 = no2.getProx()){
 				if(min.getConteudo() > no2.getConteudo()){
 					min = no2;
 				}
 
 			}
-			//faz troca dos n√≥s
+			//faz troca dos nÛs swap
 			No temp = new No();
-			temp.setConteudo(no1.getConteudo());
-			no1.setConteudo(min.getConteudo()); 
-			min.setConteudo(temp.getConteudo()); 
+			temp.setConteudo(no1.getConteudo());//temp = no1;
+			no1.setConteudo(min.getConteudo()); //no1 = min;
+			min.setConteudo(temp.getConteudo()); //min = temp;
 		}
 	}
-	
+		
+	@Override
+	public String toString() {
+		StringBuffer string = new StringBuffer();
+		for(No n = inicio; n != null; n = n.getProx()){
+			string.append(n.getConteudo());
+			string.append(" ");
+		}
+		return string.toString();
+	}
+
 	public void imprimir(){
 		if(this.inicio == null){
 			System.out.println("[!]Lista Vazia");
@@ -163,12 +174,12 @@ public class ListaEncadeada {
 		//No temp = this.inicio;
 		//System.out.print(temp.getConteudo() + "\t");
 		for(No n = this.inicio; n !=null; n = n.getProx()){
-			System.out.println(n.getConteudo());
+			System.out.print(n.getConteudo() + "\t");
 		}
 //		while(temp.getProx() != null){
 //			temp = temp.getProx();
 //			System.out.print(temp.getConteudo() + "\t");
 //		}
-	}			
+	}		
 
 }
