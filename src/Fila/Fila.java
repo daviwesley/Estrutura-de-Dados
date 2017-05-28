@@ -33,7 +33,8 @@ public class Fila  {
 		this.tam++;
 	}
 	
-	public void removerInicio(){
+	public void remover(){
+		//remove do inicio
 		if(inicio == null){
 			throw new IllegalArgumentException("A lista está vazia");
 		}
@@ -42,10 +43,14 @@ public class Fila  {
 		this.tam--;
 	}
 	
-	public void imprimir(){
-		for(No i = inicio; inicio != null; i = i.getProx()){
-			System.out.print(i.getConteudo() + " ");
+	@Override
+	public String toString() {
+		StringBuffer string = new StringBuffer();
+		for(No n = inicio; n != null; n = n.getProx()){
+			string.append(n.getConteudo());
+			string.append(" ");
 		}
+		return string.toString();
 	}
 	
 	
